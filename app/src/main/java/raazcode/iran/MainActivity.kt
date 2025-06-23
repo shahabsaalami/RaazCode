@@ -64,7 +64,9 @@ fun RaazCodeApp() {
 
     Scaffold(
         topBar = {
-            TabRow(selectedTabIndex = selectedTabIndex) {
+            TabRow(selectedTabIndex = selectedTabIndex,
+                modifier = Modifier.padding(top = WindowInsets.systemBars.asPaddingValues().calculateTopPadding())
+            ) {
                 tabTitles.forEachIndexed { index, title ->
                     Tab(
                         selected = selectedTabIndex == index,
@@ -218,20 +220,20 @@ fun KodgoshaeiScreen() { // Renamed from DecodeScreen
         // --- Source text added here ---
         Spacer(modifier = Modifier.height(24.dp)) // Some space before the source
         Text(
-            text = "این اپلیکیشن از اسکریپت جاوا اسکریپت زیر الهام گرفته است:", // Text in Farsi
+            text = "سورس کد:", // Text in Farsi
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant, // A more subtle text color
             modifier = Modifier.fillMaxWidth(),
             textAlign = TextAlign.Center
         )
         Text(
-            text = "github.com/MahdiMajdian/v2ray", // The clickable URL
+            text = "https://github.com/shahabsaalami/RaazCode", // The clickable URL
             style = MaterialTheme.typography.bodySmall.copy(color = MaterialTheme.colorScheme.primary), // Make it look like a link
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(top = 4.dp)
                 .clickable {
-                    uriHandler.openUri("https://github.com/MahdiMajdian/v2ray/blob/main/script.js")
+                    uriHandler.openUri("https://github.com/shahabsaalami/RaazCode")
                 },
             textAlign = TextAlign.Center
         )
